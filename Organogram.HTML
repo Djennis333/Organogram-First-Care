@@ -171,6 +171,16 @@
                 toggleSpan.textContent = '-';
             }
         }
+
+        // Set initial state to open
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('opleidingen-list').classList.add('open');
+            document.getElementById('opleidingen-toggle').textContent = '-';
+            document.getElementById('administratie-list').classList.add('open');
+            document.getElementById('administratie-toggle').textContent = '-';
+            document.getElementById('sales-list').classList.add('open');
+            document.getElementById('sales-toggle').textContent = '-';
+        });
     </script>
 
 </body>
