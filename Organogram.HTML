@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Care Organogram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .ceo-card {
+            background-color: #fde68a;
+            color: #78350f;
+            border: 2px solid #fbbf24;
+        }
+        .department-card {
+            background-color: #c7d2fe;
+            color: #312e81;
+            border: 2px solid #818cf8;
+            cursor: pointer;
+        }
+        .employee-card {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 2px solid #6ee7b7;
+        }
+        .employee-list {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+        }
+        .employee-list.open {
+            display: grid;
+            max-height: 500px; /* A large number to allow for expansion */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="container text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-800">First Care Organogram</h1>
+
+        <!-- CEO -->
+        <div class="flex flex-col items-center mb-8">
+            <div class="card ceo-card p-6 w-72">
+                <p class="font-semibold text-lg">CEO</p>
+                <p class="text-sm mt-1">Sander (Eigenaar)</p>
+            </div>
+            <div class="w-px h-12 bg-gray-400"></div>
+        </div>
+
+        <!-- Departments -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Opleidingen -->
+            <div class="flex flex-col items-center">
+                <div class="card department-card p-4 w-full flex justify-between items-center" onclick="toggleCollapse('opleidingen-list')">
+                    <p class="font-semibold text-lg">Opleidingen</p>
+                    <span id="opleidingen-toggle" class="text-xl font-bold">+</span>
+                </div>
+                <div class="w-px h-6 bg-gray-400"></div>
+                <div id="opleidingen-list" class="employee-list grid-cols-1 gap-4 w-full">
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Cécile</p>
+                        <p class="text-xs text-gray-600">Instructeur</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Eline</p>
+                        <p class="text-xs text-gray-600">Instructeur</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Flavia</p>
+                        <p class="text-xs text-gray-600">Instructeur</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Joost</p>
+                        <p class="text-xs text-gray-600">Instructeur/Veiligheidskundige</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Loet</p>
+                        <p class="text-xs text-gray-600">Instructeur/Veiligheidskundige</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Rob</p>
+                        <p class="text-xs text-gray-600">Instructeur</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Suus</p>
+                        <p class="text-xs text-gray-600">Instructeur</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administratie -->
+            <div class="flex flex-col items-center">
+                <div class="card department-card p-4 w-full flex justify-between items-center" onclick="toggleCollapse('administratie-list')">
+                    <p class="font-semibold text-lg">Administratie</p>
+                    <span id="administratie-toggle" class="text-xl font-bold">+</span>
+                </div>
+                <div class="w-px h-6 bg-gray-400"></div>
+                <div id="administratie-list" class="employee-list grid-cols-1 gap-4 w-full">
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Anjes</p>
+                        <p class="text-xs text-gray-600">Kwaliteitsmedewerker</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Elly</p>
+                        <p class="text-xs text-gray-600">Gastvrouw</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Judith</p>
+                        <p class="text-xs text-gray-600">Medewerker administratie</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Nicole</p>
+                        <p class="text-xs text-gray-600">Medewerker administratie</p>
+                    </div>
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Verity</p>
+                        <p class="text-xs text-gray-600">Medewerker administratie</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales -->
+            <div class="flex flex-col items-center">
+                <div class="card department-card p-4 w-full flex justify-between items-center" onclick="toggleCollapse('sales-list')">
+                    <p class="font-semibold text-lg">Sales</p>
+                    <span id="sales-toggle" class="text-xl font-bold">+</span>
+                </div>
+                <div class="w-px h-6 bg-gray-400"></div>
+                <div id="sales-list" class="employee-list grid-cols-1 gap-4 w-full">
+                    <div class="card employee-card p-3">
+                        <p class="font-medium">Erik</p>
+                        <p class="text-xs text-gray-600">Senior adviseur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCollapse(listId) {
+            const list = document.getElementById(listId);
+            const toggleSpan = document.getElementById(listId.replace('-list', '-toggle'));
+            if (list.classList.contains('open')) {
+                list.classList.remove('open');
+                toggleSpan.textContent = '+';
+            } else {
+                list.classList.add('open');
+                toggleSpan.textContent = '-';
+            }
+        }
+    </script>
+
+</body>
+</html>
